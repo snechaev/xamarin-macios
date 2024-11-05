@@ -509,6 +509,7 @@ function New-ParallelTestsResults {
     Write-Host "Test suites:"
     Write-Host $suites.Keys
 
+    $tests = [System.Collections.SortedList]::new()
     foreach ($kvp in $stageDep.GetEnumerator()) {
         $candidate = $kvp.Value
         if ($candidate.tests.outputs -eq $null) {
@@ -522,7 +523,6 @@ function New-ParallelTestsResults {
 
         Write-Host "Outputs for $($testStage):"
         Write-Host $outputs
-        $tests = [System.Collections.SortedList]::new()
         foreach ($name in $outputs.Keys) {
             if ($name.EndsWith(".TESTS_LABEL")) {
                 $label = $outputs[$name]
