@@ -142,6 +142,8 @@ public class BaseTypeAttribute : Attribute {
 	// too many objects, but two cases in particular that users keep
 	// trampling on: UIAlertView and UIActionSheet
 	public string KeepRefUntil { get; set; }
+
+	public bool IsStubClass { get; set; }
 }
 
 //
